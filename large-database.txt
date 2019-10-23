@@ -1,0 +1,8 @@
+1) Disable autocommit 
+	SET AUTOCOMMIT { = | TO } { ON | OFF }
+2) Copy command
+	* Save table to csv
+		\COPY tablename TO '/home/maldonado/TDatabase/pokémones.csv' CSV;
+	* Load csv
+		\COPY new_tablename from '/home/maldonado/TDatabase/pokémones.csv' CSV;
+3) Drop indexes before load data and recreate index after!.
