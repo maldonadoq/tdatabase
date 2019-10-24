@@ -4,5 +4,21 @@
 	* Save table to csv
 		\COPY tablename TO '/home/maldonado/TDatabase/pokémones.csv' CSV;
 	* Load csv
-		\COPY new_tablename from '/home/maldonado/TDatabase/pokémones.csv' CSV;
+		\COPY new_pokemones from '/home/maldonado/TDatabase/pokémones.csv' CSV;
 3) Drop indexes before load data and recreate index after!.
+
+
+create table pokemones (id int4, name varchar(30), propietor varchar(30), catch date, evolution date, gender bool, nick varchar(30), state int4);
+
+create table new_pokemones (id int4, name varchar(30), propietor varchar(30), catch date, evolution date, gender bool, nick varchar(30), state int4);
+
+CREATE OR REPLACE PROCEDURE loop_insert(number integer)
+ LANGUAGE plpgsql
+AS $procedure$
+	BEGIN
+		for i in 1..number loop
+			insert into pokemones values (i, 'name', 'propietor', '22/10/2019', '01/01/2020', true, 'nick', i);
+		end loop;
+	END;
+$procedure$
+;
